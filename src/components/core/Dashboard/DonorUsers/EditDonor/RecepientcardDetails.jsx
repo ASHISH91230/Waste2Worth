@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getSingleCardDetails } from '../../../../../services/operations/donorAPI'
 import { useSelector } from 'react-redux'
 import formatDate from '../../../../../services/formatDate'
-const RecepientcardDetails = () => {
+const RecepientCardDetails = () => {
     const { token } = useSelector(state => state.auth)
     const { recepientId } = useParams()
     const [recepient, setRecepient] = useState(null)
@@ -26,7 +26,7 @@ const RecepientcardDetails = () => {
   
     return (
       <div className="p-6 bg-white rounded-lg shadow">
-        <h2 className="text-2xl font-bold mb-4">recepient Details</h2>
+        <h2 className="text-2xl font-bold mb-4">Recepient Details</h2>
         <p><strong>Name:</strong> {recepient.recepient.name}</p>
         <p><strong>Email:</strong> {recepient.recepient.email}</p>
         <p><strong>Contact No.:</strong> {recepient.recepient.phoneNo}</p>
@@ -48,4 +48,4 @@ const RecepientcardDetails = () => {
     )
   }
 
-export default RecepientcardDetails
+export default RecepientCardDetails

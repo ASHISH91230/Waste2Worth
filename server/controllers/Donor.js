@@ -487,8 +487,7 @@ exports.viewSingleCardDetails = async (req, res) => {
                 path: "address"
             }
         })
-        .exec()
-        console.log(recepientDetails)
+        .exec()        
         // Check Whether The Detail Exist Or Not 
         if (!recepientDetails) {
             return res.status(404).json({ message: "Recepient Details Not Found" })

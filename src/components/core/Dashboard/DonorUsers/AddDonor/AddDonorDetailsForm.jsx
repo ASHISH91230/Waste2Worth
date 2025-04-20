@@ -66,9 +66,7 @@ function AddDonorDetailsForm() {
       setValue("deliveryOption", donation.deliveryOption);
       setValue("prefferedPickUpTime", donation.prefferedPickUpTime);
       setValue("latitude", donation.latitude); // 👈 [ADDED]
-      setValue("longitude", donation.longitude); // 👈 [ADDED]
-      setValue("phonenumber", donation.phonenumber);
-      // setValue("location",donation.location)
+      setValue("longitude", donation.longitude); // 👈 [ADDED]     
     } else {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -98,10 +96,7 @@ function AddDonorDetailsForm() {
       currentValues.deliveryOption !== donation.deliveryOption ||
       currentValues.prefferedPickUpTime !== donation.prefferedPickUpTime ||
       currentValues.latitude !== donation.latitude ||
-      currentValues.longitude !== donation.longitude ||
-      currentValues.phonenumber !== donation.phonenumber
-    )
-      // || currentValues.location!== donation.location)
+      currentValues.longitude !== donation.longitude)      
       return true;
     else return false;
   };
@@ -129,12 +124,8 @@ function AddDonorDetailsForm() {
         if (currentValues.latitude !== donation.latitude)
           formData.append("latitude", data.latitude);
         if (currentValues.longitude !== donation.longitude)
-          formData.append("longitude", data.longitude);
-        if (currentValues.phonenumber !== donation.phonenumber)
-          formData.append("phonenumber", data.phonenumber);
-        // if( currentValues.location !== donation.location)
-        //     formData.append("location",data.location)
-
+          formData.append("longitude", data.longitude);     
+        
         const result = await editDonorDetails(formData, token, navigate);
         setLoading(false);
         if (result) {
@@ -155,9 +146,7 @@ function AddDonorDetailsForm() {
     formData.append("deliveryOption", data.deliveryOption);
     formData.append("prefferedPickUpTime", data.prefferedPickUpTime);
     formData.append("latitude", data.latitude);
-    formData.append("longitude", data.longitude);
-    formData.append("phonenumber", data.phonenumber);
-    // formData.append("location", data.location)
+    formData.append("longitude", data.longitude);    
 
     setLoading(true);
     const result = await addDonorDetails(formData, token, navigate);
@@ -358,26 +347,7 @@ function AddDonorDetailsForm() {
                 Preffered Pick-Up Time Is Required**
               </span>
             )}
-
-            {/* phonenumber */}
-            <label>
-              <p className="mb-1 text-[1rem] leading-[1.5rem] text-richblack-5">
-                phonenumber <sup className="text-pink-500">*</sup>
-              </p>
-            </label>
-            <input
-              type="text"
-              name="phonenumber"
-              id="phonenumber"
-              placeholder="Enter The phonenumber "
-              {...register("phonenumber", { required: true })}
-              className="form-style w-full border-2 border-solid p-2 rounded-lg"
-            />
-            {errors.phonenumber && (
-              <span className="ml-2 text-xs tracking-wide text-pink-200">
-                phonenumber Is Required**
-              </span>
-            )}
+           
           </div>
 
           {/* <div className="flex flex-col space-y-2">

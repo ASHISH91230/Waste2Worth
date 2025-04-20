@@ -39,8 +39,7 @@ function AddRecepientDetailsForm() {
 
       setValue("latitude", recepient.latitude); // 👈 [ADDED]
       setValue("longitude", recepient.longitude); // 👈 [ADDED]
-
-      setValue("phonenumber", recepient.phonenumber);
+      
     } else {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -70,8 +69,7 @@ function AddRecepientDetailsForm() {
       currentValues.receivingOption !== recepient.receivingOption ||
       currentValues.prefferedPickUpTime !== recepient.prefferedPickUpTime ||
       currentValues.latitude !== recepient.latitude ||
-      currentValues.longitude !== recepient.longitude ||
-      currentValues.phonenumber !== recepient.phonenumber
+      currentValues.longitude !== recepient.longitude
     ) {
       return true;
     } else return false;
@@ -100,10 +98,7 @@ function AddRecepientDetailsForm() {
         if (currentValues.latitude !== recepient.latitude)
           formData.append("latitude", data.latitude);
         if (currentValues.longitude !== recepient.longitude)
-          formData.append("longitude", data.longitude);
-
-        if (currentValues.phonenumber !== recepient.phonenumber)
-          formData.append("phonenumber", data.phonenumber);
+          formData.append("longitude", data.longitude);        
 
         setLoading(true);
         const result = await editRecepientDetails(formData, token, navigate);
@@ -128,8 +123,6 @@ function AddRecepientDetailsForm() {
 
     formData.append("latitude", data.latitude);
     formData.append("longitude", data.longitude);
-
-    formData.append("phonenumber", data.phonenumber);
 
     setLoading(true);
     const result = await addRecepientDetails(formData, token, navigate);
@@ -334,27 +327,7 @@ function AddRecepientDetailsForm() {
               </span>
             )}
           </div>
-
-          {/* phonenumber */}
-          <label>
-            <p className=" mt-5 text-[1rem] leading-[1.5rem] text-richblack-5">
-              phonenumber <sup className="text-pink-500">*</sup>
-            </p>
-          </label>
-          <input
-            type="text"
-            name="phonenumber"
-            id="phonenumber"
-            placeholder="Enter The phonenumber "
-            {...register("phonenumber", { required: true })}
-            className="form-style w-full border-2 border-solid p-2 rounded-lg"
-          />
-          {errors.phonenumber && (
-            <span className="ml-2 text-xs tracking-wide text-pink-200">
-              phonenumber Is Required**
-            </span>
-          )}
-
+          
           <div className="flex justify-end gap-x-2">
             {editRecepient && (
               <button

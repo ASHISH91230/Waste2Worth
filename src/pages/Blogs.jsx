@@ -90,7 +90,7 @@ const Blogs = () => {
               onClick={() => setActiveTab(tab)}
               className={`px-6 py-2 rounded-full capitalize transition-all ${
                 activeTab === tab
-                  ? "bg-emerald-500 text-white shadow-lg"
+                  ? "bg-richblack-500 text-white shadow-lg"
                   : "bg-white text-gray-600 hover:bg-gray-100 shadow-md"
               }`}
             >
@@ -157,7 +157,7 @@ const Blogs = () => {
           <p className="text-gray-600 mb-6 max-w-xl mx-auto">
             Get weekly updates, tips, and resources straight to your inbox
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row mx-auto max-w-sm">
             <input
               type="email"
               placeholder="Enter your email"
