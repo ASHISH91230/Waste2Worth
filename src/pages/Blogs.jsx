@@ -38,7 +38,7 @@ const Blogs = () => {
         "Innovative technologies for extending food freshness and reducing waste",
       content:
         "1. Smart containers with freshness sensors 2. Vacuum sealing systems 3. Ethylene-absorbing fridge liners 4. Herb preservation stations 5. Modular fridge organizers 6. AI-powered inventory trackers 7. Compostable food wraps 8. Controlled atmosphere storage 9. UV-C sanitization boxes 10. Community food sharing apps",
-      image: "https://unsplash.com/photos/a-shelf-filled-with-containers-and-containers-of-food-50HpEGK0YgY",
+      image: "https://images.unsplash.com/photo-1682071308392-2e7a285fc11c?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       category: "solutions",
       date: "March 10, 2024",
       author: "Emma Wilson",
