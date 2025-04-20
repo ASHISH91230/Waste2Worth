@@ -33,7 +33,7 @@ const Blogs = () => {
     },
     {
       id: 3,
-      title: "Smart Food Storage Solutions",
+      title: "Smart Food Storage Solutions .",
       excerpt:
         "Innovative technologies for extending food freshness and reducing waste",
       content:
