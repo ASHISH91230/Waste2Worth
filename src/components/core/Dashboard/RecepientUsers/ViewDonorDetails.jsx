@@ -198,11 +198,11 @@ const ViewDonorDetails = () => {
               />
               <select
                 value={selectedDelivery}
-                onChange={(e) => setSelectedDelivery(e.target.value)}
+                onChange={(e) => setSelectedDelivery(e.target.value.toLowerCase())}
                 className="p-3 border border-gray-300 rounded-md w-full"
               >
                 <option value="">All Delivery Options</option>
-                <option value="PickUp">Pickup</option>
+                <option value="Pickup">Pickup</option>
                 <option value="Delivery">Delivery</option>
               </select>
               <select
