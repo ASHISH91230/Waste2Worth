@@ -26,9 +26,10 @@ import Contact from "./pages/Contact"
 import './App.css'
 import { ACCOUNT_TYPE } from './utils/constants'
 import DonorCardDetails from './components/core/Dashboard/RecepientUsers/DonorCardDetails'
-import RecepientCardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientCardDetails'
+// import RecepientCardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientCardDetails'
 
 import Blogs from './pages/Blogs'
+import RecepientCardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientCardDetails'
 
 function App() {
   const { user } = useSelector((state) => state.profile)
