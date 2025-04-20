@@ -66,7 +66,9 @@ function AddDonorDetailsForm() {
       setValue("deliveryOption", donation.deliveryOption);
       setValue("prefferedPickUpTime", donation.prefferedPickUpTime);
       setValue("latitude", donation.latitude); // 👈 [ADDED]
-      setValue("longitude", donation.longitude); // 👈 [ADDED]     
+      setValue("longitude", donation.longitude); // 👈 [ADDED]   
+      setValue("phonenumber", donation.phonenumber); // 👈 Added
+  
     } else {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -96,10 +98,15 @@ function AddDonorDetailsForm() {
       currentValues.deliveryOption !== donation.deliveryOption ||
       currentValues.prefferedPickUpTime !== donation.prefferedPickUpTime ||
       currentValues.latitude !== donation.latitude ||
-      currentValues.longitude !== donation.longitude)      
+      currentValues.longitude !== donation.longitude ||
+      currentValues.phonenumber !== donation.phonenumber
+    ) {
       return true;
-    else return false;
+    } else {
+      return false;
+    }
   };
+  
 
   // Handle Form Submission
   const onSubmit = async (data) => {
@@ -125,6 +132,8 @@ function AddDonorDetailsForm() {
           formData.append("latitude", data.latitude);
         if (currentValues.longitude !== donation.longitude)
           formData.append("longitude", data.longitude);     
+          if (currentValues.phonenumber !== donation.phonenumber)
+          formData.append("phonenumber", data.phonenumber);
         
         const result = await editDonorDetails(formData, token, navigate);
         setLoading(false);
@@ -147,6 +156,7 @@ function AddDonorDetailsForm() {
     formData.append("prefferedPickUpTime", data.prefferedPickUpTime);
     formData.append("latitude", data.latitude);
     formData.append("longitude", data.longitude);    
+    formData.append("phonenumber", data.phonenumber);
 
     setLoading(true);
     const result = await addDonorDetails(formData, token, navigate);
@@ -157,7 +167,7 @@ function AddDonorDetailsForm() {
   };
   return (
     <div>
-      <Map />
+      <Map/>
       {/* Allowing Only Approved Users To Update Details  */}
       {user?.approved === true ? (
         <form
@@ -349,6 +359,33 @@ function AddDonorDetailsForm() {
             )}
            
           </div>
+          <div className="flex flex-col space-y-2">
+  <label>
+    <p className="mb-1 text-[1rem] leading-[1.5rem] text-richblack-5">
+      Phone Number <sup className="text-pink-500">*</sup>
+    </p>
+  </label>
+  <input
+    type="text"
+    name="phonenumber"
+    id="phonenumber"
+    placeholder="Enter Your Phone Number"
+    {...register("phonenumber", {
+      required: true,
+      pattern: {
+        value: /^[0-9]{10}$/,
+        message: "Enter a valid 10-digit number",
+      },
+    })}
+    className="form-style w-full border-2 border-solid p-2 rounded-lg"
+  />
+  {errors.phonenumber && (
+    <span className="ml-2 text-xs tracking-wide text-pink-200">
+      {errors.phonenumber.message || "Phone Number is required**"}
+    </span>
+  )}
+</div>
+
 
           {/* <div className="flex flex-col space-y-2">
                         <label>
