@@ -27,9 +27,9 @@ import './App.css'
 import { ACCOUNT_TYPE } from './utils/constants'
 import DonorCardDetails from './components/core/Dashboard/RecepientUsers/DonorCardDetails'
 // import RecepientCardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientCardDetails'
-
+import RecepientcardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientcardDetails'
 import Blogs from './pages/Blogs'
-import RecepientCardDetails from './components/core/Dashboard/DonorUsers/EditDonor/RecepientCardDetails'
+
 
 function App() {
   const { user } = useSelector((state) => state.profile)
@@ -113,7 +113,7 @@ function App() {
                 <Route path="dashboard/recepients" element={<ViewRecepientDetails />} />
                 <Route path="dashboard/edit-donor-details/:donorId" element={<EditDonorDetails />} />
                 <Route path="dashboard/edit-donor-details" element={<ViewDonations />} />
-                <Route path="dashboard/view-recepient-single-card-details/:recepientId" element={<RecepientCardDetails/>}/>
+                <Route path="dashboard/view-recepient-single-card-details/:recepientId" element={<RecepientcardDetails/>}/>
               </>
             )
           }
